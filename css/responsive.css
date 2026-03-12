@@ -1,0 +1,9 @@
+@media (max-width: 535px) {
+  body {
+    padding: 2.5rem 1rem;
+  }
+
+  .endpoint-desc {
+    display: none;
+  }
+}
