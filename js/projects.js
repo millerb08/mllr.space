@@ -16,6 +16,20 @@ const projects = [
     ],
     tags: ["Python", "FastAPI", "Pydantic", "Docker", "Ansible"],
   },
+  {
+    name: "WL003",
+    badge: "planned",
+    description:
+      "Centralized insurance management platform &mdash; cross-platform app for managing policies, claims, and customer data. Same experience on desktop, mobile, and browser.",
+    tags: ["Electron", "Vue.js", "Capacitor", "FastAPI"],
+  },
+  {
+    name: "CH34L",
+    badge: "planned",
+    description:
+      "EV Charging Aggregator &mdash; lightweight mobile app that brings together charging stations from multiple providers with real-time availability and payments.",
+    tags: ["Vue.js", "Capacitor", "FastAPI"],
+  },
 ];
 
 function renderProjects() {
