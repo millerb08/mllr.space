@@ -18,11 +18,16 @@ const projects = [
     tags: ["Python", "FastAPI", "HL7 FHIR", "PostgreSQL", "Docker", "GCP"],
   },
   {
-    name: "WL003",
+    name: "Segurito",
     badge: "planned",
     description:
-      "Centralized insurance management platform &mdash; cross-platform app for managing policies, claims, and customer data. Same experience on desktop, mobile, and browser.",
-    tags: ["Electron", "Vue.js", "Capacitor", "FastAPI"],
+      "One app for all your insurance &mdash; find covered doctors, schedule appointments, authorize medicines and procedures, submit claims, and track everything. No more emails, calls, or outdated Excels.",
+    pipeline: [
+      "Policyholder",
+      "Segurito App",
+      "Insurance Providers",
+    ],
+    tags: ["Vue.js", "Electron", "Capacitor", "FastAPI", "PostgreSQL", "GCP"],
   },
   {
     name: "CH34L",
