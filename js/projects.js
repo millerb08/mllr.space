@@ -3,18 +3,19 @@ const projects = [
     name: "HGC",
     badge: "in progress",
     description:
-      "Health Gateway Colombia &mdash; a clinical data gateway that validates, transforms, and routes healthcare submissions to the Ministry of Health.",
+      "Health Gateway Colombia &mdash; centralized clinical history API. EPSs and independent doctors submit patient data via HL7 FHIR, HGC validates, standardizes, stores, and delivers to the Ministry of Health. Like Factus, but for medical records.",
     pipeline: [
-      "Medical Systems",
-      "Validation",
-      "Canonical Model",
-      "Ministry",
+      "EPS / Doctors",
+      "FHIR Validation",
+      "PostgreSQL",
+      "Ministry of Health",
     ],
     endpoints: [
       { method: "GET", path: "/api/v1/health", desc: "liveness probe" },
-      { method: "POST", path: "/api/v1/submit", desc: "clinical data intake" },
+      { method: "POST", path: "/api/v1/fhir/bundle", desc: "FHIR Bundle intake" },
+      { method: "GET", path: "/api/v1/submissions/{id}", desc: "delivery status" },
     ],
-    tags: ["Python", "FastAPI", "Pydantic", "Docker", "Ansible"],
+    tags: ["Python", "FastAPI", "HL7 FHIR", "PostgreSQL", "Docker", "GCP"],
   },
   {
     name: "WL003",
