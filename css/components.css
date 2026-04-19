@@ -190,6 +190,24 @@
   color: #ffffff;
 }
 
+/* Skills group label */
+.skills-group {
+  margin-bottom: 14px;
+}
+
+.skills-group:last-child {
+  margin-bottom: 0;
+}
+
+.skills-group-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 /* Links — Primer text links */
 .links {
   display: flex;
