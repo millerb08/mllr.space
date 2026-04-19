@@ -1,157 +1,211 @@
+/* Box / Card — Primer Box component */
 .card {
-  background: var(--surface);
+  background: var(--canvas-default);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius);
-  padding: calc(var(--padding) + 4px) calc(var(--padding) + 6px);
-  box-shadow: 0 0 0 1px var(--input-border) inset;
-  transition: background 0.2s, box-shadow 0.2s;
+  padding: 16px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .card:hover {
-  background: var(--surface-hover);
+  border-color: var(--fg-subtle);
+  box-shadow: var(--shadow-small);
 }
 
 .card + .card {
-  margin-top: 8px;
+  margin-top: 12px;
 }
 
 .card-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
   margin-bottom: 8px;
 }
 
 .card-name {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--fg-default);
 }
 
+/* Label — Primer Label component (pill, bordered, tinted text) */
 .badge {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
-  padding: 3px 10px;
-  border-radius: var(--radius);
-  background: var(--surface-press);
-  color: var(--subtext);
-  box-shadow: 0 0 0 1px var(--input-border) inset;
+  line-height: 18px;
+  padding: 0 7px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--fg-muted);
+  border: 1px solid var(--border-default);
+  display: inline-flex;
+  align-items: center;
+}
+
+.badge[data-status="in progress"] {
+  color: var(--attention-fg);
+  border-color: var(--attention-fg);
+  background: var(--attention-subtle);
+}
+
+.badge[data-status="planned"] {
+  color: var(--done-fg);
+  border-color: var(--done-fg);
+  background: var(--done-subtle);
+}
+
+.badge[data-status="shipped"],
+.badge[data-status="done"] {
+  color: var(--success-fg);
+  border-color: var(--success-fg);
+  background: var(--success-subtle);
 }
 
 .card-desc {
-  font-size: 12.5px;
-  color: var(--subtext);
-  line-height: 1.7;
-  margin-bottom: var(--padding);
+  font-size: 14px;
+  color: var(--fg-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
 }
 
+/* Pipeline — code-style chips */
 .pipeline {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-bottom: var(--padding);
+  margin-bottom: 14px;
   flex-wrap: wrap;
 }
 
 .pipeline-step {
-  font-size: 11px;
-  font-weight: 500;
-  padding: 4px 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 1px 6px;
   border-radius: var(--radius);
-  background: var(--bg);
-  color: var(--text);
-  box-shadow: 0 0 0 1px var(--input-border) inset;
+  background: var(--canvas-subtle);
+  color: var(--fg-default);
+  border: 1px solid var(--border-muted);
 }
 
 .pipeline-arrow {
-  color: var(--subtext);
+  color: var(--fg-subtle);
   font-size: 12px;
 }
 
+/* Endpoints — Primer table-like list inside a Box */
 .endpoints {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  margin-bottom: var(--padding);
+  margin-bottom: 14px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
 .endpoint {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 6px 10px;
-  border-radius: var(--radius);
-  background: var(--bg);
-  font-size: 12.5px;
-  font-weight: 500;
-  box-shadow: 0 0 0 1px var(--input-border) inset;
+  gap: 12px;
+  padding: 8px 12px;
+  background: var(--canvas-default);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+}
+
+.endpoint + .endpoint {
+  border-top: 1px solid var(--border-muted);
 }
 
 .method {
-  font-size: 10px;
-  font-weight: 500;
-  padding: 2px 6px;
-  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 0 6px;
+  line-height: 18px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.02em;
   text-align: center;
+  min-width: 46px;
+  border: 1px solid transparent;
 }
 
 .method-get {
-  background: rgba(47, 138, 249, 0.15);
-  color: var(--blue);
+  color: var(--accent-fg);
+  background: var(--accent-subtle);
+  border-color: var(--accent-fg);
 }
 
 .method-post {
-  background: rgba(48, 189, 27, 0.15);
-  color: var(--green);
+  color: var(--success-fg);
+  background: var(--success-subtle);
+  border-color: var(--success-fg);
+}
+
+.method-put {
+  color: var(--attention-fg);
+  background: var(--attention-subtle);
+  border-color: var(--attention-fg);
+}
+
+.method-delete {
+  color: var(--danger-fg);
+  background: var(--danger-subtle);
+  border-color: var(--danger-fg);
 }
 
 .endpoint-path {
-  color: var(--text);
+  color: var(--fg-default);
 }
 
 .endpoint-desc {
-  color: var(--subtext);
+  color: var(--fg-subtle);
   margin-left: auto;
-  font-size: 11px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 12px;
   font-weight: 400;
 }
 
+/* Tags — Primer "topic" pills */
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 6px;
 }
 
 .tag {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
-  padding: 3px 10px;
-  border-radius: var(--radius);
-  background: var(--bg);
-  color: var(--subtext);
-  box-shadow: 0 0 0 1px var(--input-border) inset;
+  padding: 0 10px;
+  line-height: 22px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-subtle);
+  color: var(--accent-fg);
+  cursor: default;
+  transition: background 0.15s ease;
 }
 
+.tag:hover {
+  background: var(--accent-emphasis);
+  color: #ffffff;
+}
+
+/* Links — Primer text links */
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 16px;
 }
 
 .links a {
-  color: var(--text);
+  color: var(--accent-fg);
   text-decoration: none;
-  font-size: 12.5px;
-  font-weight: 500;
-  padding: 6px 13px;
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: 0 0 0 1px var(--input-border) inset;
-  transition: background 0.2s;
+  font-size: 14px;
+  font-weight: 400;
+  transition: color 0.15s ease;
 }
 
 .links a:hover {
-  background: var(--surface-hover);
-}
-
-.links a:active {
-  background: var(--surface-press);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }

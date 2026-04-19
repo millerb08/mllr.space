@@ -3,7 +3,19 @@
     padding: 2.5rem 1rem;
   }
 
+  h1 {
+    font-size: 22px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
   .endpoint-desc {
     display: none;
+  }
+
+  .links {
+    gap: 14px;
   }
 }

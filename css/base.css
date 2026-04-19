@@ -1,100 +1,140 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
-
 :root {
-  --bg: #000000;
-  --surface: #191919;
-  --surface-hover: #242424;
-  --surface-press: #2a2a2a;
-  --text: #e1e1e1;
-  --subtext: #818181;
-  --input-border: #383838;
-  --padding: 12px;
-  --radius: 11px;
-  --blue: #2f8af9;
-  --green: #30bd1b;
-  --red: #ed2236;
+  /* Primer light */
+  --canvas-default: #ffffff;
+  --canvas-subtle: #f6f8fa;
+  --canvas-inset: #eff2f5;
+  --border-default: #d1d9e0;
+  --border-muted: #d8dee4;
+  --fg-default: #1f2328;
+  --fg-muted: #59636e;
+  --fg-subtle: #6a737d;
+
+  --accent-fg: #0969da;
+  --accent-emphasis: #0969da;
+  --accent-subtle: #ddf4ff;
+  --success-fg: #1a7f37;
+  --success-subtle: #dafbe1;
+  --attention-fg: #9a6700;
+  --attention-subtle: #fff8c5;
+  --done-fg: #8250df;
+  --done-subtle: #fbefff;
+  --danger-fg: #d1242f;
+  --danger-subtle: #ffebe9;
+
+  --radius: 6px;
+  --radius-pill: 2em;
+  --padding: 16px;
+
+  --shadow-small: 0 1px 0 rgba(31, 35, 40, 0.04);
+  --shadow-medium: 0 3px 6px rgba(140, 149, 159, 0.15);
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --bg: #ffffff;
-    --surface: #f4f4f4;
-    --surface-hover: #ededed;
-    --surface-press: #e8e8e8;
-    --text: #000000;
-    --subtext: #75757e;
-    --input-border: #adadb7;
+    --canvas-default: #0d1117;
+    --canvas-subtle: #161b22;
+    --canvas-inset: #010409;
+    --border-default: #30363d;
+    --border-muted: #21262d;
+    --fg-default: #e6edf3;
+    --fg-muted: #9198a1;
+    --fg-subtle: #6e7681;
+
+    --accent-fg: #4493f8;
+    --accent-emphasis: #1f6feb;
+    --accent-subtle: rgba(56, 139, 253, 0.15);
+    --success-fg: #3fb950;
+    --success-subtle: rgba(46, 160, 67, 0.15);
+    --attention-fg: #d29922;
+    --attention-subtle: rgba(187, 128, 9, 0.15);
+    --done-fg: #a371f7;
+    --done-subtle: rgba(163, 113, 247, 0.15);
+    --danger-fg: #f85149;
+    --danger-subtle: rgba(248, 81, 73, 0.15);
+
+    --shadow-small: 0 0 0 1px rgba(240, 246, 252, 0.05);
+    --shadow-medium: 0 3px 6px rgba(1, 4, 9, 0.5);
   }
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   font-weight: 400;
-  font-size: 14.5px;
-  background: var(--bg);
-  color: var(--text);
+  font-size: 14px;
+  background: var(--canvas-default);
+  color: var(--fg-default);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 4rem 1.5rem;
-  line-height: 1.8;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  max-width: 600px;
+  max-width: 768px;
   width: 100%;
 }
 
 header {
-  margin-bottom: 3rem;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-muted);
 }
 
 h1 {
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: -1px;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fg-default);
 }
 
 .tagline {
-  color: var(--subtext);
-  font-size: 12.5px;
-  font-weight: 500;
+  color: var(--fg-muted);
+  font-size: 14px;
+  font-weight: 400;
   margin-top: 4px;
 }
 
 .section {
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
 
 .section-title {
   font-size: 12px;
-  font-weight: 500;
-  text-transform: lowercase;
-  color: var(--subtext);
-  margin-bottom: var(--padding);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fg-muted);
+  margin-bottom: 12px;
 }
 
 footer {
   margin-top: auto;
-  padding-top: 3rem;
-  font-size: 11px;
+  padding-top: 40px;
+  font-size: 12px;
   font-weight: 400;
-  color: var(--subtext);
+  color: var(--fg-subtle);
 }
 
 .cursor {
   display: inline-block;
   width: 2px;
-  height: 1em;
-  background: var(--text);
-  margin-left: 2px;
+  height: 0.85em;
+  background: var(--fg-default);
+  margin-left: 3px;
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
   50% { opacity: 0; }
+}
+
+code, .mono {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
 }

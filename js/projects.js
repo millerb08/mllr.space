@@ -46,7 +46,7 @@ function renderProjects() {
     <div class="card">
       <div class="card-header">
         <span class="card-name">${p.name}</span>
-        ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
+        ${p.badge ? `<span class="badge" data-status="${p.badge}">${p.badge}</span>` : ""}
       </div>
       <p class="card-desc">${p.description}</p>
       ${p.pipeline ? `
