@@ -3,7 +3,7 @@ const projects = [
     name: "HGC",
     badge: "in progress",
     description:
-      "Health Gateway Colombia &mdash; centralized clinical history API. EPSs and independent doctors submit patient data via HL7 FHIR, HGC validates, standardizes, stores, and delivers to the Ministry of Health. Like Factus, but for medical records.",
+      "Health Gateway Colombia, a centralized clinical history API. EPSs and independent doctors submit patient data via HL7 FHIR, and HGC takes care of validation, standardization, storage, and delivery to the Ministry of Health. Think Factus, but for medical records.",
     pipeline: [
       "EPS / Doctors",
       "FHIR Validation",
@@ -21,7 +21,7 @@ const projects = [
     name: "Segurito",
     badge: "planned",
     description:
-      "One app for all your insurance &mdash; find covered doctors, schedule appointments, authorize medicines and procedures, submit claims, and track everything. No more emails, calls, or outdated Excels.",
+      "One app for all your insurance needs. Find covered doctors, schedule appointments, authorize medicines and procedures, submit claims, and track everything in one place. No more emails, calls, or spreadsheets.",
     pipeline: [
       "Policyholder",
       "Segurito App",
@@ -33,7 +33,7 @@ const projects = [
     name: "CH34L",
     badge: "planned",
     description:
-      "EV Charging Aggregator &mdash; lightweight mobile app that brings together charging stations from multiple providers with real-time availability and payments.",
+      "A lightweight mobile app that pulls together EV charging stations from multiple providers into one place, with real-time availability and payments.",
     tags: ["Vue.js", "Capacitor", "FastAPI"],
   },
 ];

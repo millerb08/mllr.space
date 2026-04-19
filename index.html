@@ -13,39 +13,39 @@
   <div class="container">
     <header>
       <h1>miller<span class="cursor"></span></h1>
-      <p class="tagline">software engineer &mdash; building things that matter</p>
+      <p class="tagline">software engineer, building things that matter</p>
     </header>
 
-    <section class="section">
-      <div class="section-title">about</div>
+    <nav class="section-nav">
+      <button class="nav-btn active" data-section="about">about</button>
+      <button class="nav-btn" data-section="work">work log</button>
+      <button class="nav-btn" data-section="projects">projects</button>
+      <button class="nav-btn" data-section="skills">skills</button>
+    </nav>
+
+    <div class="section-panel" id="panel-about">
       <div id="about"></div>
-    </section>
+    </div>
 
-    <section class="section">
-      <div class="section-title">work log</div>
+    <div class="section-panel hidden" id="panel-work">
       <div id="work"></div>
-    </section>
+    </div>
 
-    <section class="section">
-      <div class="section-title">projects</div>
+    <div class="section-panel hidden" id="panel-projects">
       <div id="projects"></div>
-    </section>
+    </div>
 
-    <section class="section">
-      <div class="section-title">skills</div>
+    <div class="section-panel hidden" id="panel-skills">
       <div id="skills"></div>
-    </section>
+    </div>
 
-    <section class="section">
-      <div class="section-title">contact</div>
-      <div class="links">
-        <a href="https://github.com/millerb08" target="_blank" rel="noopener">github</a>
-        <a href="mailto:miller.steffens@gmail.com">email</a>
-      </div>
-    </section>
   </div>
 
   <footer>
+    <div class="links" style="justify-content:center;margin-bottom:8px">
+      <a href="https://github.com/millerb08" target="_blank" rel="noopener">github.com/millerb08</a>
+      <a href="mailto:miller.steffens@gmail.com">miller.steffens@gmail.com</a>
+    </div>
     <span>mllr.space</span>
   </footer>
 
@@ -53,5 +53,18 @@
   <script src="js/work.js"></script>
   <script src="js/projects.js"></script>
   <script src="js/skills.js"></script>
+  <script>
+    const btns = document.querySelectorAll('.nav-btn');
+    const panels = document.querySelectorAll('.section-panel');
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        panels.forEach(p => p.classList.add('hidden'));
+        btn.classList.add('active');
+        document.getElementById('panel-' + btn.dataset.section).classList.remove('hidden');
+      });
+    });
+  </script>
 </body>
 </html>

@@ -118,6 +118,10 @@ footer {
   font-size: 12px;
   font-weight: 400;
   color: var(--fg-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .cursor {
@@ -133,6 +137,8 @@ footer {
 @keyframes blink {
   50% { opacity: 0; }
 }
+
+.hidden { display: none; }
 
 code, .mono {
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;

@@ -4,21 +4,21 @@ const work = [
     role: "Senior Software Engineer",
     period: "Oct 2025 – Jan 2026",
     badge: "done",
-    description: "Collaborated on infrastructure and environment migration to GCP. Implemented WhatsApp-based messaging and an AI-powered chatbot for customer support. Designed and maintained RESTful API endpoints in FastAPI serving internal tools, customer-facing features, and third-party integrations. Worked with legacy JavaScript and jQuery codebases. Promoted to Senior Software Engineer based on technical impact and ownership.",
+    description: "Took on more ownership as the team migrated infrastructure to GCP. Built WhatsApp messaging and an AI chatbot for customer support, kept the FastAPI layer healthy across internal and third-party integrations, and dug into legacy JS codebases when needed. Promoted to Senior based on impact and ownership.",
   },
   {
     company: "Sabre Corporation",
     role: "Software Engineer",
     period: "May 2022 – Sep 2025",
     badge: "done",
-    description: "Designed and maintained RESTful API endpoints and full-stack features across a large-scale travel technology platform. Contributed to infrastructure work and third-party integrations over nearly three and a half years in a fully remote environment.",
+    description: "Spent three and a half years building and maintaining APIs and full-stack features for a large travel technology platform. Worked remotely across infrastructure, integrations, and product-facing development.",
   },
   {
     company: "Nuvola Inc.",
     role: "Web Developer",
     period: "Jan 2021 – Apr 2022",
     badge: "done",
-    description: "Built the guest chat messaging module for the v5 release of a hotel management platform. Restructured and modernized the application UI, improving visual design and user experience. Developed and maintained features using PHP, Laravel, and CodeIgniter.",
+    description: "Joined during the v5 push for a hotel management platform. Built the guest chat messaging module, modernized the UI, and worked across features in PHP, Laravel, and CodeIgniter.",
   },
 ];
 
@@ -40,9 +40,10 @@ function renderWork() {
       </div>
       <div style="font-size:13px;font-weight:500;color:var(--fg-muted);margin-bottom:8px">${w.role}</div>
       <p class="card-desc">${w.description}</p>
+      ${w.tags && w.tags.length ? `
       <div class="tags">
         ${w.tags.map((t) => `<span class="tag">${t}</span>`).join("")}
-      </div>
+      </div>` : ""}
     </div>
   `).join("");
 }

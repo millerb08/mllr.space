@@ -1,5 +1,5 @@
 const about = {
-  bio: "Software Engineer with five years of experience designing and building RESTful APIs, architecting full-stack solutions, and migrating infrastructure to GCP. Comfortable across the entire stack — from database schema to UI — with a track record of delivering in both fast-moving startup environments and large enterprise teams. Currently leveraging AI-assisted development workflows to ship faster without cutting corners.",
+  bio: "Software Engineer from the Caribbean coast of Colombia <img src='https://flagcdn.com/co.svg' alt='Colombia' style='width:18px;height:13px;vertical-align:middle;border-radius:2px;margin:0 2px'> with five years of experience building APIs, full-stack products, and cloud infrastructure. I've worked across startups and enterprise teams, and I'm comfortable at any layer of the stack. These days I also lean on AI tooling to move faster and stay focused on what actually matters.",
 };
 
 function renderAbout() {

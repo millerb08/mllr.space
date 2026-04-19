@@ -5,7 +5,7 @@ const skills = [
   },
   {
     group: "Backend",
-    items: ["FastAPI", "Laravel", "CodeIgniter", "REST APIs"],
+    items: ["FastAPI", "Laravel", "REST APIs"],
   },
   {
     group: "Frontend",
