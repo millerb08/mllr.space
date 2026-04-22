@@ -36,9 +36,9 @@ function renderWork() {
       <div class="card-header">
         <span class="card-name">${w.company}</span>
         ${w.badge ? `<span class="badge" data-status="${w.badge}">${w.badge}</span>` : ""}
-        <span class="mono" style="margin-left:auto;color:var(--fg-muted)">${w.period}</span>
+        <span class="work-period">${w.period}</span>
       </div>
-      <div style="font-size:13px;font-weight:500;color:var(--fg-muted);margin-bottom:8px">${w.role}</div>
+      <div class="work-role">${w.role}</div>
       <p class="card-desc">${w.description}</p>
       ${w.tags && w.tags.length ? `
       <div class="tags">

@@ -1,123 +1,126 @@
+/* Cal.com-inspired design system — grayscale, typographic, shadow-first */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/cal-sans');
+
 :root {
-  /* Primer light */
-  --canvas-default: #ffffff;
-  --canvas-subtle: #f6f8fa;
-  --canvas-inset: #eff2f5;
-  --border-default: #d1d9e0;
-  --border-muted: #d8dee4;
-  --fg-default: #1f2328;
-  --fg-muted: #59636e;
-  --fg-subtle: #6a737d;
+  /* Grayscale palette — dark mode (night shift) */
+  --charcoal: #e6e6e6;       /* primary text — inverted */
+  --midnight: #f5f5f5;       /* deep text — near-white */
+  --mid-gray: #8a8a8a;       /* muted text */
+  --light-gray: #1a1a1a;     /* subtle surfaces / nav track */
+  --white: #0a0a0a;          /* canvas background — near-black */
+  --surface: #141414;        /* card surface — one step above canvas */
+  --link-blue: #4db8ff;      /* link — brightened for dark bg */
+  --focus-ring: rgba(77, 184, 255, 0.6);
 
-  --accent-fg: #0969da;
-  --accent-emphasis: #0969da;
-  --accent-subtle: #ddf4ff;
-  --success-fg: #1a7f37;
-  --success-subtle: #dafbe1;
-  --attention-fg: #9a6700;
-  --attention-subtle: #fff8c5;
-  --done-fg: #8250df;
-  --done-subtle: #fbefff;
-  --danger-fg: #d1242f;
-  --danger-subtle: #ffebe9;
+  /* Semantic roles */
+  --fg-default: var(--charcoal);
+  --fg-deep: var(--midnight);
+  --fg-muted: var(--mid-gray);
+  --canvas-default: var(--white);
+  --canvas-subtle: var(--light-gray);
+  --link: var(--link-blue);
 
-  --radius: 6px;
-  --radius-pill: 2em;
-  --padding: 16px;
+  /* Shadow system — light ring + dark ambient (depth on black) */
+  --shadow-card:
+    rgba(0, 0, 0, 0.5) 0px 1px 5px -4px,
+    rgba(255, 255, 255, 0.06) 0px 0px 0px 1px,
+    rgba(0, 0, 0, 0.4) 0px 4px 8px 0px;
+  --shadow-card-alt:
+    rgba(0, 0, 0, 0.6) 0px 1px 5px -4px,
+    rgba(0, 0, 0, 0.3) 0px 4px 8px 0px;
+  --shadow-soft: rgba(0, 0, 0, 0.3) 0px 4px 8px 0px;
+  --shadow-ring: rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
+  --shadow-button-inset: rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 
-  --shadow-small: 0 1px 0 rgba(31, 35, 40, 0.04);
-  --shadow-medium: 0 3px 6px rgba(140, 149, 159, 0.15);
+  /* Radius scale */
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --canvas-default: #0d1117;
-    --canvas-subtle: #161b22;
-    --canvas-inset: #010409;
-    --border-default: #30363d;
-    --border-muted: #21262d;
-    --fg-default: #e6edf3;
-    --fg-muted: #9198a1;
-    --fg-subtle: #6e7681;
-
-    --accent-fg: #4493f8;
-    --accent-emphasis: #1f6feb;
-    --accent-subtle: rgba(56, 139, 253, 0.15);
-    --success-fg: #3fb950;
-    --success-subtle: rgba(46, 160, 67, 0.15);
-    --attention-fg: #d29922;
-    --attention-subtle: rgba(187, 128, 9, 0.15);
-    --done-fg: #a371f7;
-    --done-subtle: rgba(163, 113, 247, 0.15);
-    --danger-fg: #f85149;
-    --danger-subtle: rgba(248, 81, 73, 0.15);
-
-    --shadow-small: 0 0 0 1px rgba(240, 246, 252, 0.05);
-    --shadow-medium: 0 3px 6px rgba(1, 4, 9, 0.5);
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.5;
   background: var(--canvas-default);
   color: var(--fg-default);
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4rem 1.5rem 2rem;
-  line-height: 1.5;
+  padding: 96px 24px 48px;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-  max-width: 768px;
+  max-width: 820px;
   width: 100%;
 }
 
+/* Header — big, confident display type */
 header {
-  padding-bottom: 16px;
-  margin-bottom: 24px;
-  border-bottom: 1px solid var(--border-muted);
+  padding-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 h1 {
-  font-size: 26px;
+  font-family: 'Cal Sans', 'Inter', sans-serif;
+  font-size: 64px;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  line-height: 1.10;
+  letter-spacing: 0;
   color: var(--fg-default);
 }
 
 .tagline {
+  font-family: 'Inter', sans-serif;
   color: var(--fg-muted);
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
-  margin-top: 4px;
+  line-height: 1.5;
+  margin-top: 16px;
+  max-width: 560px;
 }
 
+/* Section titles (if ever used) */
 .section {
-  margin-bottom: 32px;
+  margin-bottom: 80px;
 }
 
 .section-title {
-  font-size: 12px;
+  font-family: 'Cal Sans', 'Inter', sans-serif;
+  font-size: 48px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--fg-muted);
-  margin-bottom: 12px;
+  line-height: 1.10;
+  letter-spacing: 0;
+  color: var(--fg-default);
+  margin-bottom: 24px;
 }
 
+/* Footer */
 footer {
-  margin-top: auto;
-  padding: 40px 0 16px;
-  font-size: 12px;
+  margin-top: 96px;
+  padding: 48px 0 16px;
+  font-size: 14px;
   font-weight: 400;
-  color: var(--fg-subtle);
+  color: var(--fg-muted);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,12 +128,13 @@ footer {
   width: 100%;
 }
 
+/* Cursor — kept for personality */
 .cursor {
   display: inline-block;
-  width: 2px;
+  width: 3px;
   height: 0.85em;
   background: var(--fg-default);
-  margin-left: 3px;
+  margin-left: 4px;
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
 }
@@ -141,7 +145,15 @@ footer {
 
 .hidden { display: none; }
 
+/* Mono */
 code, .mono {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-  font-size: 12px;
+  font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Focus ring — accessibility */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
 }

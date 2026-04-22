@@ -1,218 +1,234 @@
-/* Box / Card — Primer Box component */
+/* Cards — shadow-first, no CSS borders */
 .card {
-  background: var(--canvas-default);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius);
-  padding: 16px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .card:hover {
-  border-color: var(--fg-subtle);
-  box-shadow: var(--shadow-small);
+  box-shadow:
+    rgba(0, 0, 0, 0.6) 0px 2px 8px -4px,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px,
+    rgba(0, 0, 0, 0.5) 0px 8px 16px 0px;
 }
 
 .card + .card {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .card-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
 }
 
 .card-name {
-  font-size: 16px;
+  font-family: 'Cal Sans', 'Inter', sans-serif;
+  font-size: 24px;
   font-weight: 600;
+  line-height: 1.30;
   color: var(--fg-default);
 }
 
-/* Label — Primer Label component (pill, bordered, tinted text) */
-.badge {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 18px;
-  padding: 0 7px;
-  border-radius: var(--radius-pill);
-  background: transparent;
+.card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
   color: var(--fg-muted);
-  border: 1px solid var(--border-default);
+  margin-bottom: 16px;
+}
+
+.card-desc:last-child {
+  margin-bottom: 0;
+}
+
+/* Badges — pill shape, grayscale with subtle tint */
+.badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  background: var(--light-gray);
+  color: var(--fg-default);
   display: inline-flex;
   align-items: center;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  box-shadow: var(--shadow-ring);
 }
 
 .badge[data-status="in progress"] {
-  color: var(--attention-fg);
-  border-color: var(--attention-fg);
-  background: var(--attention-subtle);
+  background: var(--fg-default);
+  color: var(--white);
+  box-shadow: none;
 }
 
 .badge[data-status="planned"] {
-  color: var(--done-fg);
-  border-color: var(--done-fg);
-  background: var(--done-subtle);
+  background: transparent;
+  color: var(--fg-default);
 }
 
 .badge[data-status="shipped"],
 .badge[data-status="done"] {
-  color: var(--success-fg);
-  border-color: var(--success-fg);
-  background: var(--success-subtle);
-}
-
-.card-desc {
-  font-size: 14px;
+  background: var(--light-gray);
   color: var(--fg-muted);
-  line-height: 1.5;
-  margin-bottom: 14px;
 }
 
-/* Pipeline — code-style chips */
+/* Pipeline — monochrome chips with arrows */
 .pipeline {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 14px;
+  gap: 8px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
 }
 
 .pipeline-step {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 12px;
+  font-family: 'Roboto Mono', ui-monospace, Menlo, monospace;
+  font-size: 13px;
   font-weight: 400;
-  padding: 1px 6px;
+  padding: 4px 10px;
   border-radius: var(--radius);
-  background: var(--canvas-subtle);
+  background: var(--light-gray);
   color: var(--fg-default);
-  border: 1px solid var(--border-muted);
+  box-shadow: var(--shadow-ring);
 }
 
 .pipeline-arrow {
-  color: var(--fg-subtle);
-  font-size: 12px;
+  color: var(--fg-muted);
+  font-size: 14px;
+  font-weight: 400;
 }
 
-/* Endpoints — Primer table-like list inside a Box */
+/* Endpoints — shadow-bordered list */
 .endpoints {
   display: flex;
   flex-direction: column;
-  margin-bottom: 14px;
-  border: 1px solid var(--border-default);
+  margin-bottom: 16px;
   border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-ring);
 }
 
 .endpoint {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 8px 12px;
-  background: var(--canvas-default);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 12px;
+  padding: 10px 14px;
+  background: var(--light-gray);
+  font-family: 'Roboto Mono', ui-monospace, Menlo, monospace;
+  font-size: 13px;
 }
 
 .endpoint + .endpoint {
-  border-top: 1px solid var(--border-muted);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
+/* Method labels — grayscale with weight hierarchy */
 .method {
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
-  font-weight: 600;
-  padding: 0 6px;
-  line-height: 18px;
+  font-weight: 700;
+  padding: 2px 8px;
+  line-height: 16px;
   border-radius: var(--radius-pill);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   text-align: center;
-  min-width: 46px;
-  border: 1px solid transparent;
+  min-width: 52px;
+  text-transform: uppercase;
 }
 
 .method-get {
-  color: var(--accent-fg);
-  background: var(--accent-subtle);
-  border-color: var(--accent-fg);
+  color: var(--white);
+  background: var(--fg-default);
 }
 
 .method-post {
-  color: var(--success-fg);
-  background: var(--success-subtle);
-  border-color: var(--success-fg);
+  color: var(--fg-default);
+  background: var(--light-gray);
+  box-shadow: var(--shadow-ring);
 }
 
 .method-put {
-  color: var(--attention-fg);
-  background: var(--attention-subtle);
-  border-color: var(--attention-fg);
+  color: var(--white);
+  background: var(--fg-deep);
 }
 
 .method-delete {
-  color: var(--danger-fg);
-  background: var(--danger-subtle);
-  border-color: var(--danger-fg);
+  color: var(--fg-default);
+  background: var(--mid-gray);
 }
 
 .endpoint-path {
   color: var(--fg-default);
+  font-weight: 500;
 }
 
 .endpoint-desc {
-  color: var(--fg-subtle);
+  color: var(--fg-muted);
   margin-left: auto;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
   font-weight: 400;
 }
 
-/* Tags — Primer "topic" pills */
+/* Tags — grayscale pills */
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
 }
 
 .tag {
-  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
   font-weight: 500;
-  padding: 0 10px;
-  line-height: 22px;
+  padding: 4px 12px;
   border-radius: var(--radius-pill);
-  background: var(--accent-subtle);
-  color: var(--accent-fg);
+  background: var(--light-gray);
+  color: var(--fg-default);
   cursor: default;
-  transition: background 0.15s ease;
+  transition: background 0.2s ease, color 0.2s ease;
+  box-shadow: var(--shadow-ring);
 }
 
 .tag:hover {
-  background: var(--accent-emphasis);
-  color: #ffffff;
+  background: var(--fg-default);
+  color: var(--white);
+  box-shadow: none;
 }
 
-/* Section nav */
+/* Section nav — pill-style segmented control */
 .section-nav {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  margin-bottom: 24px;
-  border-bottom: 1px solid var(--border-muted);
-  padding-bottom: 0;
+  margin-bottom: 48px;
+  padding: 6px;
+  background: var(--light-gray);
+  border-radius: var(--radius-pill);
+  width: fit-content;
 }
 
 .nav-btn {
-  background: none;
+  font-family: 'Inter', sans-serif;
+  background: transparent;
   border: none;
-  border-bottom: 2px solid transparent;
-  padding: 8px 12px;
-  margin-bottom: -1px;
-  font-size: 12px;
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  font-size: 14px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
   color: var(--fg-muted);
   cursor: pointer;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 0;
 }
 
 .nav-btn:hover {
@@ -221,12 +237,16 @@
 
 .nav-btn.active {
   color: var(--fg-default);
-  border-bottom-color: var(--fg-default);
+  background: var(--surface);
+  box-shadow:
+    rgba(0, 0, 0, 0.5) 0px 1px 5px -4px,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px,
+    rgba(0, 0, 0, 0.4) 0px 2px 4px 0px;
 }
 
-/* Skills group label */
+/* Skills groups */
 .skills-group {
-  margin-bottom: 14px;
+  margin-bottom: 24px;
 }
 
 .skills-group:last-child {
@@ -234,30 +254,72 @@
 }
 
 .skills-group-label {
-  font-size: 12px;
+  font-family: 'Cal Sans', 'Inter', sans-serif;
+  font-size: 16px;
   font-weight: 600;
-  color: var(--fg-muted);
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  color: var(--fg-default);
+  margin-bottom: 12px;
+  letter-spacing: 0;
 }
 
-/* Links — Primer text links */
+/* Work card role line */
+.work-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  margin-bottom: 12px;
+}
+
+.work-period {
+  font-family: 'Roboto Mono', ui-monospace, Menlo, monospace;
+  font-size: 13px;
+  color: var(--fg-muted);
+  margin-left: auto;
+}
+
+/* Links — the only place color lives */
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
+  align-items: center;
 }
 
 .links a {
-  color: var(--accent-fg);
+  color: var(--fg-default);
   text-decoration: none;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
-  font-weight: 400;
-  transition: color 0.15s ease;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .links a:hover {
+  color: var(--link);
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
+}
+
+/* CTA button — signature dark-on-white */
+.btn-primary {
+  font-family: 'Inter', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fg-default);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: var(--shadow-button-inset);
+  transition: opacity 0.2s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.85;
 }

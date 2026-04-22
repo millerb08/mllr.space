@@ -67,3 +67,6 @@ secrets/
 
 # === Misc ===
 Thumbs.db
+
+# === Design notes (local reference only) ===
+DESIGN.md
